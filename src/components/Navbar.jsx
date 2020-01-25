@@ -1,30 +1,45 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, ShoppingCart } from '@material-ui/icons';
+import clsx from 'clsx';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import styled from 'styled-components';
 
-const Navbar = () => {
+const Navbar = ({ classes, open, handleDrawerOpen }) => {
  return (
-    <nav class="navbar navbar-dark bg-dark">
-        <Link to="/">
-            <StyledMenuButton>
-                <Menu/>
-            </StyledMenuButton>
-        </Link>
-        <ul className="navbar-nav align-items-center">
-            <li className="nav-item ml-5">
-                <Link to="/" className="nav-link">
-                    Products
-                </Link>
-            </li>
-        </ul>
-        <Link to='/cart' className="ml-auto">
-            <StyledCartButton>
-                <ShoppingCart/>
-                Cart
-            </StyledCartButton>
-        </Link> 
-    </nav>
+    <AppBar
+    position="fixed"
+    className={clsx(classes.appBar, {
+      [classes.appBarShift]: open,
+    })}
+  >
+    <Toolbar>
+      <IconButton
+        color="inherit"
+        aria-label="open drawer"
+        onClick={handleDrawerOpen}
+        edge="start"
+        className={clsx(classes.menuButton, open && classes.hide)}
+      >
+        <MenuIcon />
+      </IconButton>
+      <Link to="/">
+        <Typography variant="h6" noWrap>
+          Webshop
+        </Typography>
+      </Link>
+      <Link to='/cart' className="ml-auto">
+        <StyledCartButton>
+            <ShoppingCartIcon/>
+            Cart
+        </StyledCartButton>
+      </Link>
+    </Toolbar>
+  </AppBar>
  )
 }
 
