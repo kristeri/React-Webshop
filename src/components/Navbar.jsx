@@ -5,14 +5,14 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { Menu } from "@material-ui/icons";
+import { ShoppingCart } from "@material-ui/icons";
 import styled from "styled-components";
 
 const Navbar = ({ classes, open, handleDrawerOpen }) => {
   return (
     <AppBar
-      style={{ background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)" }}
+      style={{ background: "linear-gradient(45deg, #335CC5 30%, #637FFD 90%)" }}
       position="fixed"
       className={clsx(classes.appBar, {
         [classes.appBarShift]: open
@@ -26,18 +26,15 @@ const Navbar = ({ classes, open, handleDrawerOpen }) => {
           edge="start"
           className={clsx(classes.menuButton, open && classes.hide)}
         >
-          <MenuIcon />
+          <Menu />
         </IconButton>
         <Link to="/" style={{ color: "#FFF" }}>
           <Typography variant="h6" noWrap>
             Webshop
           </Typography>
         </Link>
-        <Link to="/cart" className="ml-auto">
-          <StyledCartButton>
-            <ShoppingCartIcon />
-            Cart
-          </StyledCartButton>
+        <Link to="/cart" style={{ color: "#FFF" }} className="ml-auto">
+          <ShoppingCart />
         </Link>
       </Toolbar>
     </AppBar>
