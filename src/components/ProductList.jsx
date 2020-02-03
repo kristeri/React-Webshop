@@ -6,8 +6,22 @@ import styled from "styled-components";
 const ProductList = () => {
   return (
     <StyledDiv>
-      <h1>Welcome to Webshop</h1>
-      <h2>Buy and sell products online around the world</h2>
+      <div>
+        <img
+          src={require("../banner_image.png")}
+          style={{ width: "100%", height: "600px" }}
+          alt=""
+        ></img>
+        <BannerDiv>
+          <h1 style={{ color: "#FFF", fontSize: "80px", padding: "10px" }}>
+            Welcome to Webshop.
+          </h1>
+          <h3 style={{ color: "#FFF" }}>
+            Buy and sell products online, around the world.
+          </h3>
+          <h3 style={{ color: "#FFF" }}>We ship worldwide. Fast.</h3>
+        </BannerDiv>
+      </div>
       <StyledContainer className="row">
         <WebshopConsumer>
           {value => {
@@ -20,6 +34,13 @@ const ProductList = () => {
     </StyledDiv>
   );
 };
+
+const BannerDiv = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
 
 const StyledDiv = styled.div`
   flex-direction: column;
