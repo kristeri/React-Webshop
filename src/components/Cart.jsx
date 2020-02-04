@@ -20,21 +20,62 @@ const Cart = () => {
           if (cart.length > 0) {
             return (
               <>
+                <div>
+                  <div className="row">
+                    <div className="col-10 mx-auto col-lg-2">
+                      <strong>product</strong>
+                    </div>
+                    <div className="col-10 mx-auto col-lg-2">
+                      <strong>Name</strong>
+                    </div>
+                    <div className="col-10 mx-auto col-lg-2">
+                      <strong>Price</strong>
+                    </div>
+                    <div className="col-10 mx-auto col-lg-2">
+                      <strong>Quantity</strong>
+                    </div>
+                    <div className="col-10 mx-auto col-lg-2">
+                      <strong>Total</strong>
+                    </div>
+                  </div>
+                </div>
                 {cart.map(item => {
                   const { id, title, img, price, count } = item;
                   return (
-                    <div>
-                      <img
-                        src={img}
-                        style={{ width: "auto", height: 200 }}
-                        alt=""
-                      ></img>
-                      <span>{title}</span>
-                      <span>{price}</span>
-                      <Button onClick={() => decrement(id)}>-</Button>
-                      <span>{count}</span>
-                      <Button onClick={() => increment(id)}>+</Button>
-                      <Button onClick={() => removeItem(id)}>Remove</Button>
+                    <div className="row">
+                      <div className="col-10 mx-auto col-lg-2">
+                        <img
+                          src={img}
+                          style={{ width: "100px", heigth: "100px" }}
+                          //className="img-fluid"
+                          alt=""
+                        ></img>
+                      </div>
+                      <div className="col-10 mx-auto col-lg-2">
+                        <span className="d-lg-none">product :</span> {title}
+                      </div>
+                      <div className="col-10 mx-auto col-lg-2">
+                        <strong>
+                          <span className="d-lg-none">price :</span> ${price}
+                        </strong>
+                      </div>
+                      <div className="col-10 mx-auto col-lg-2 my-2 my-lg-0 ">
+                        <div className="row">
+                          <div>
+                            <Button onClick={() => decrement(id)}>-</Button>
+                            <span>{count}</span>
+                            <Button onClick={() => increment(id)}>+</Button>
+                            <Button onClick={() => removeItem(id)}>
+                              Remove
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-10 mx-auto col-lg-2 ">
+                        <strong>
+                          item total : ${(price * count).toFixed(2)}{" "}
+                        </strong>
+                      </div>
                     </div>
                   );
                 })}
