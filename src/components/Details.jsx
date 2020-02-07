@@ -24,7 +24,7 @@ const Details = () => {
               </div>
             </div>
             <div className="row">
-              <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
+              <div className="col-10 mx-auto col-md-6 my-3">
                 <img
                   src={img}
                   style={{ width: "auto", height: 200 }}
@@ -32,17 +32,17 @@ const Details = () => {
                   alt=""
                 />
               </div>
-              <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
-                <h2>Model : {title}</h2>
-                <h4 className="text-title text-uppercase text-muted mt-3 mb-2">
-                  Made by : <span className="text-uppercase">{company}</span>
+              <div className="col-10 mx-auto col-md-6 my-3">
+                <h2>Model: {title}</h2>
+                <h4 className="text-title text-muted mt-3 mb-2">
+                  Made by: <span>{company}</span>
                 </h4>
                 <h4 className="text-blue">
                   <strong>
-                    price : <span>${price}</span>
+                    price: <span>${price}</span>
                   </strong>
                 </h4>
-                <p className="text-capitalize font-weight-bold mt-3 mb-0">
+                <p className="font-weight-bold mt-3 mb-0">
                   Product information:
                 </p>
                 <p className="text-muted lead">{info}</p>

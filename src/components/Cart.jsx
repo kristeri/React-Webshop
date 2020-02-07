@@ -1,6 +1,7 @@
 import React from "react";
 import { WebshopConsumer } from "../context";
 import styled from "styled-components";
+import { ShoppingCart } from "@material-ui/icons";
 
 const Cart = () => {
   return (
@@ -20,10 +21,10 @@ const Cart = () => {
           if (cart.length > 0) {
             return (
               <>
-                <div>
+                <div className="pt-3">
                   <div className="row">
                     <div className="col-10 mx-auto col-lg-2">
-                      <strong>product</strong>
+                      <strong>Product</strong>
                     </div>
                     <div className="col-10 mx-auto col-lg-2">
                       <strong>Name</strong>
@@ -42,24 +43,23 @@ const Cart = () => {
                 {cart.map(item => {
                   const { id, title, img, price, count } = item;
                   return (
-                    <div className="row">
+                    <div className="row pt-1">
                       <div className="col-10 mx-auto col-lg-2">
                         <img
                           src={img}
-                          style={{ width: "100px", heigth: "100px" }}
-                          //className="img-fluid"
+                          style={{ width: "60px", heigth: "60px" }}
                           alt=""
                         ></img>
                       </div>
                       <div className="col-10 mx-auto col-lg-2">
-                        <span className="d-lg-none">product :</span> {title}
+                        <span className="d-lg-none">product:</span> {title}
                       </div>
                       <div className="col-10 mx-auto col-lg-2">
                         <strong>
-                          <span className="d-lg-none">price :</span> ${price}
+                          <span className="d-lg-none">price:</span> ${price}
                         </strong>
                       </div>
-                      <div className="col-10 mx-auto col-lg-2 my-2 my-lg-0 ">
+                      <div className="col-10 mx-auto col-lg-2">
                         <div className="row">
                           <div>
                             <Button onClick={() => decrement(id)}>-</Button>
@@ -79,26 +79,38 @@ const Cart = () => {
                     </div>
                   );
                 })}
-                <Button onClick={() => clearCart()}>Clear cart</Button>
-                <h5>
-                  <span className="text-title">Subtotal:</span>
-                  <strong>$ {cartSubTotal.toFixed(2)}</strong>
-                </h5>
-                <h5>
-                  <span className="text-title">Tax:</span>
-                  <strong>$ {cartTax.toFixed(2)}</strong>
-                </h5>
-                <h5>
-                  <span className="text-title">Total:</span>
-                  <strong>$ {cartTotal.toFixed(2)}</strong>
-                </h5>
+                <div className="col-10 mt-2 ml-sm-5 ml-md-auto col-sm-8 text-right">
+                  <ClearCartButton onClick={() => clearCart()}>
+                    Clear cart
+                  </ClearCartButton>
+                  <h5>
+                    <span className="text-title">Subtotal: </span>
+                    <strong>$ {cartSubTotal.toFixed(2)}</strong>
+                  </h5>
+                  <h5>
+                    <span className="text-title">Tax: </span>
+                    <strong>$ {cartTax.toFixed(2)}</strong>
+                  </h5>
+                  <h5>
+                    <span className="text-title">Total: </span>
+                    <strong>$ {cartTotal.toFixed(2)}</strong>
+                  </h5>
+                </div>
               </>
             );
           } else {
             return (
-              <>
-                <span>Your cart is empty.</span>
-              </>
+              <div
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  display: "flex",
+                  paddingTop: "50px"
+                }}
+              >
+                <h3>Your cart is empty.</h3>
+                <ShoppingCart style={{ color: "#637FFD", fontSize: "100px" }} />
+              </div>
             );
           }
         }}
@@ -106,11 +118,19 @@ const Cart = () => {
     </div>
   );
 };
+const ClearCartButton = styled.button`
+  color: #637ffd;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid #637ffd;
+  border-radius: 3px;
+`;
 
 const Button = styled.button`
   color: #637ffd;
   font-size: 1em;
-  margin: 1em;
+  margin: 0em 1em 0em 1em;
   padding: 0.25em 1em;
   border: 2px solid #637ffd;
   border-radius: 3px;

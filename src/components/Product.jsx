@@ -32,22 +32,13 @@ const Product = ({ product }) => {
                 }}
               >
                 {inCart ? (
-                  <p className="text-capitalize mb-0" disabled>
+                  <p className="mb-0" disabled>
                     In cart
                   </p>
                 ) : (
                   <AddShoppingCart />
                 )}
               </StyledAddCartButton>
-              {/*
-              <div>
-                <p>{title}</p>
-                <h5>
-                  <span>$</span>
-                  {price}
-                </h5>
-              </div>
-              */}
             </div>
           )}
         </WebshopConsumer>
