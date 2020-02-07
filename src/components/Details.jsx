@@ -33,13 +33,13 @@ const Details = () => {
                 />
               </div>
               <div className="col-10 mx-auto col-md-6 my-3">
-                <h2>Model: {title}</h2>
+                <h2>Product name: {title}</h2>
                 <h4 className="text-title text-muted mt-3 mb-2">
-                  Made by: <span>{company}</span>
+                  Manufacturer: <span>{company}</span>
                 </h4>
                 <h4 className="text-blue">
                   <strong>
-                    price: <span>${price}</span>
+                    Price: <span>${price}</span>
                   </strong>
                 </h4>
                 <p className="font-weight-bold mt-3 mb-0">
