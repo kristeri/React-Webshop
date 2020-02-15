@@ -9,7 +9,7 @@ const Modal = () => {
       <WebshopConsumer>
         {value => {
           const { modalOpen, closeModal } = value;
-          const { img, title, price } = value.modalProduct;
+          const { id, title, price } = value.modalProduct;
 
           if (!modalOpen) {
             return null;
@@ -24,7 +24,7 @@ const Modal = () => {
                     >
                       <h5>Item added to the cart</h5>
                       <img
-                        src={img}
+                        src={`https://webshop-api-server.herokuapp.com/products/${id}/file`}
                         style={{ width: "auto", height: 200 }}
                         className="img-fluid"
                         alt=""

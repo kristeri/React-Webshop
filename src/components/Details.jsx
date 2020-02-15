@@ -26,7 +26,7 @@ const Details = () => {
             <div className="row">
               <div className="col-10 mx-auto col-md-6 my-3">
                 <img
-                  src={img}
+                  src={`https://webshop-api-server.herokuapp.com/products/${id}/file`}
                   style={{ width: "auto", height: 200 }}
                   className="img-fluid"
                   alt=""

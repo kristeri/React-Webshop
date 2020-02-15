@@ -5,7 +5,7 @@ import { WebshopConsumer } from "../context";
 import { AddShoppingCart } from "@material-ui/icons";
 
 const Product = ({ product }) => {
-  const { id, title, img, price, inCart } = product;
+  const { id, title, price, inCart } = product;
   return (
     <StyledProduct className="col-9 mx-auto col-md-6 col-lg-3 my-3">
       <div className="card">
@@ -17,8 +17,8 @@ const Product = ({ product }) => {
             >
               <Link to="/details">
                 <img
-                  src={img}
-                  style={{ width: "auto", height: 200 }}
+                  src={`https://webshop-api-server.herokuapp.com/products/${id}/file`}
+                  style={{ width: "95%", height: 200 }}
                   alt=""
                   className="card-img-top"
                 />

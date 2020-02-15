@@ -46,7 +46,7 @@ const Cart = () => {
                     <div className="row pt-1">
                       <div className="col-10 mx-auto col-lg-2">
                         <img
-                          src={img}
+                          src={`https://webshop-api-server.herokuapp.com/products/${id}/file`}
                           style={{ width: "60px", heigth: "60px" }}
                           alt=""
                         ></img>

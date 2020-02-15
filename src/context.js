@@ -13,18 +13,31 @@ class WebshopProvider extends Component {
     cartTax: 0,
     cartTotal: 0
   };
+
   componentDidMount() {
     this.setProducts();
   }
+
   setProducts = () => {
     let tempProducts = [];
-    mockProducts.forEach(item => {
-      const singleItem = { ...item };
-      tempProducts = [...tempProducts, singleItem];
-    });
-    this.setState(() => {
-      return { products: tempProducts };
-    });
+
+    fetch("https://webshop-api-server.herokuapp.com/products")
+      .then(res => res.json())
+      .then(
+        products => {
+          products.forEach(item => {
+            const singleItem = { ...item };
+            tempProducts = [...tempProducts, singleItem];
+          });
+          this.setState(() => {
+            return { products: tempProducts };
+          });
+        },
+        error => {
+          console.error(error);
+          return;
+        }
+      );
   };
 
   getItem = id => {
